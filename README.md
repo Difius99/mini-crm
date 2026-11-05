@@ -27,7 +27,16 @@ npm run dev                  # http://localhost:5173
 
 ### Деплой
 
-Vercel / Netlify: импортировать репозиторий, добавить переменные `VITE_SUPABASE_URL` и `VITE_SUPABASE_ANON_KEY`. Для SPA-роутинга уже лежат `vercel.json` и `public/_redirects`.
+**GitHub Pages** (https://difius99.github.io/mini-crm/):
+
+```bash
+npm run deploy
+```
+
+Скрипт собирает проект с `base: "/mini-crm/"` (режим `gh-pages`), копирует `index.html` в `404.html`, чтобы прямые ссылки вида `/mini-crm/tasks/<id>` открывались, и публикует `dist` в ветку `gh-pages`. Переменные берутся из локального `.env.local`. В настройках репозитория: Settings → Pages → Source: ветка `gh-pages`, папка `/ (root)`.
+
+**Vercel / Netlify**: импортировать репозиторий, добавить переменные `VITE_SUPABASE_URL` и `VITE_SUPABASE_ANON_KEY`. Для SPA-роутинга уже лежат `vercel.json` и `public/_redirects`.
+
 В Supabase → Authentication → URL Configuration указать адрес приложения.
 
 ---

@@ -6,6 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:gh": "tsc -b && vite build --mode gh-pages && node -e \"require('fs').copyFileSync('dist/index.html','dist/404.html')\"",
+    "predeploy": "npm run build:gh",
+    "deploy": "gh-pages -d dist",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -27,9 +30,11 @@
     "eslint": "^10.10.0",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.6",
+    "gh-pages": "^6.3.0",
     "globals": "^17.12.0",
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.69.0",
     "vite": "^8.3.0"
-  }
+  },
+  "homepage": "https://difius99.github.io/mini-crm/"
 }
